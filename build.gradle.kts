@@ -1,5 +1,6 @@
 plugins {
     id("java")
+    id("application")
 }
 
 group = "com.authlyn"
@@ -7,6 +8,15 @@ version = "1.0-SNAPSHOT"
 
 repositories {
     mavenCentral()
+}
+
+application {
+    mainClass = "com.authlyn.Main"
+}
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_21
+    targetCompatibility = JavaVersion.VERSION_21
 }
 
 dependencies {
