@@ -37,7 +37,7 @@ A TCP server that multiplexes many client connections on one thread via a Java N
 - **Crash recovery** — rebuild state from AOF and/or the latest snapshot on boot.
 
 ### Constraints / assumptions
-- Java 21, the CodeCrafters Java starter (`Main.java` + `your_program.sh`), Gradle/Maven per the starter. Solo, evenings + weekends.
+- Java 25, the CodeCrafters Java starter (`Main.java` + `your_program.sh`), Gradle/Maven per the starter. Solo, evenings + weekends.
 - Write the event loop yourself with NIO — pulling in Netty defeats the purpose (Netty is a fine *stretch* comparison).
 - Progress is gated by passing CodeCrafters stages; depth items are added between/after tracks.
 
