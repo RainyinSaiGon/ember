@@ -15,8 +15,7 @@ description: Open a pull request from the current branch into main for RainyinSa
 
 ## Baked-in values
 
-**PR template:** None — `.github/pull_request_template.md` does not exist.
-Use the standard PR body structure below (same as `draft-report`'s PR fallback).
+**PR template:** `.github/pull_request_template.md` (exists — use it as the skeleton).
 
 **Issue-link keyword:** `Closes #<n>`
 
@@ -33,8 +32,8 @@ Example: `Add incremental RESP parser` (not `feat(parser): add RESP parser`).
 
 - Current branch: `git rev-parse --abbrev-ref HEAD`. If it's `main`, stop.
 - Base branch: `main` (hardcoded).
-- Linked issue: parse `#<n>` from the branch name (e.g. `feature/#12-resp-parser` → 12);
-  else ask the user. Use it for `Closes #<n>`.
+- Linked issue: parse the number from the branch name — format is `<type>/#<n>-<slug>`
+  (e.g. `feature/#2-resp-parser` → issue #2). If no number found, ask the user. Use it for `Closes #<n>`.
 - Push the branch if it has no upstream:
   ```bash
   git push -u origin <branch>
@@ -48,37 +47,7 @@ git diff main...HEAD --stat
 git diff main...HEAD
 ```
 
-Fill the standard PR structure with real content — no placeholder comments left:
-
-```markdown
-## Summary
-<What changed and why, drawn from the diff and commits.>
-
-## Related
-Closes #<n>
-
-## What Changed
-- [ ] Core server / networking
-- [ ] RESP parser
-- [ ] Command dispatcher / keyspace
-- [ ] Persistence (RDB / AOF)
-- [ ] Replication
-- [ ] Data types
-- [ ] Tests
-- [ ] Build / config
-- [ ] Documentation
-
-## Verification
-<Exact commands: `./gradlew build`, `./gradlew test`, plus any manual redis-cli steps.>
-
-## Breaking Changes
-<Yes / No, and what.>
-
-## Follow-Up
-<Items intentionally deferred.>
-```
-
-Tick only the checkboxes the diff actually touches.
+Fill `.github/pull_request_template.md` with real content — no `<!-- ... -->` placeholders left. Tick only the checkboxes the diff actually touches.
 
 Write the body to `.claude/drafts/draft-pr.md` with frontmatter:
 ```markdown

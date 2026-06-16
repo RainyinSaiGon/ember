@@ -62,7 +62,7 @@ For PR reports, use `.github/pull_request_template.md`.
 ## Step 2 — Gather grounding (do not fabricate)
 
 1. Read `README.md` for architecture and feature track context.
-2. Read `src/ember-spec (mini redis).md` for the detailed track acceptance criteria and design rationale. Reference specific track names (Track 0, Track A, etc.) when relevant.
+2. Read `docs/spec.md` for the detailed track acceptance criteria and design rationale. Reference specific track names (Track 0, Track A, etc.) when relevant.
 3. Search the codebase for keywords from the task title to identify affected files.
 4. For PR reports: `git diff main...HEAD --stat` and read changed file content.
 5. Reconcile: if the spec and code disagree, the code wins. Note discrepancies explicitly.
@@ -70,7 +70,7 @@ For PR reports, use `.github/pull_request_template.md`.
 ## Step 3 — Fill every section
 
 - **Summary** — 2–5 sentences, plain language. State the problem and change.
-- **Context** — reference the relevant track from the spec (e.g. "This is part of Track 0 — Foundation"). Cite `src/ember-spec (mini redis).md` section if directly relevant.
+- **Context** — reference the relevant track from the spec (e.g. "This is part of Track 0 — Foundation"). Cite `docs/spec.md` section if directly relevant.
 - **Actor** — use the vocabulary above.
 - **Proposed Behavior** — numbered concrete steps; for a new feature, describe the end state; for a refactor, describe the before/after.
 - **Acceptance Criteria** — drawn from the track's Acceptance section in the spec where applicable. Add task-specific ones.
@@ -104,6 +104,6 @@ labels: [<inferred labels>]
 
 - Draft written to `.claude/drafts/draft-issue.md` with valid frontmatter.
 - Zero `<!-- ... -->` comments and zero dangling `docs/...` placeholders in the body.
-- Every spec reference is to a real section that exists in `src/ember-spec (mini redis).md`.
+- Every spec reference is to a real section that exists in `docs/spec.md`.
 - Checkboxes reflect a real decision.
 - Specific enough that a teammate could start work from it alone.

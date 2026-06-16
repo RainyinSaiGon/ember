@@ -29,9 +29,10 @@ No `updateIssue` mutation needed.
 
 Labels not in this table: skip (don't auto-create; offer to create if user wants).
 
-**Branch convention** (inferred — no CONTRIBUTING.md yet):
-`<type>/<short-description>` where `<type>` is `feature`, `fix`, `chore`, or `docs`.
-Examples: `feature/resp-parser`, `fix/set-expiry`, `chore/gradle-setup`.
+**Branch convention:**
+`<type>/#<issue-number>-<short-description>` where `<type>` is `feature`, `fix`, `chore`, or `docs`.
+Examples: `feature/#2-resp-parser`, `fix/#3-set-expiry`, `chore/#1-gradle-setup`.
+The `#<n>` after the type prefix links the branch to the issue on GitHub automatically.
 Slugify the issue title to form `<short-description>` (lowercase, hyphens, max ~40 chars).
 
 **Projects:** `TODO(scope: read:project)` — the `gh` token lacks `read:project`.
@@ -99,14 +100,14 @@ Format: `<type>/<short-description>` — pick `<type>` from the issue tag:
 gh issue develop <n> \
   --repo RainyinSaiGon/ember \
   --base main \
-  --name "<type>/<short-description>" \
+  --name "<type>/#<n>-<short-description>" \
   --checkout
 ```
 
 If `gh issue develop` is unavailable, fall back to:
 ```bash
-git switch -c "<type>/<short-description>"
-git push -u origin "<type>/<short-description>"
+git switch -c "<type>/#<n>-<short-description>"
+git push -u origin "<type>/#<n>-<short-description>"
 ```
 
 Warn the user if `git status` shows uncommitted changes that carry over.
